@@ -1,4 +1,4 @@
-package com.aiproject.domain.menu;
+package com.aiproject.menu.domain.menu;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

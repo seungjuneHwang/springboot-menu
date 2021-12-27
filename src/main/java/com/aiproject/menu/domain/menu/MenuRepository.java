@@ -1,4 +1,4 @@
-package com.aiproject.domain.menu;
+package com.aiproject.menu.domain.menu;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
