@@ -11,10 +11,12 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @RestController
 public class MenuApiController {
-    private MenuService menuService;
+    private final MenuService menuService;
 
     @PostMapping("/api/v1/menusave")
     public Long save(@RequestBody MenuSaveRequestDto requestDto) {
+        // System.out.println(requestDto.getMenu());
+        // System.out.println(requestDto.getImgLink());
         return menuService.save(requestDto);
     }
     
