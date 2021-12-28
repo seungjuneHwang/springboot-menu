@@ -3,6 +3,7 @@ package com.aiproject.menu.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.aiproject.menu.domain.menu.Menu;
 import com.aiproject.menu.domain.menu.MenuRepository;
 import com.aiproject.menu.dto.MenuListResponseDto;
 import com.aiproject.menu.dto.MenuSaveRequestDto;
@@ -29,5 +30,15 @@ public class MenuService {
         return menuRepository.findAll().stream()
         .map(MenuListResponseDto::new)
         .collect(Collectors.toList());
+    }
+
+    // 데이터 수정
+    @Transactional
+    public Long update(Long id, MenuSaveRequestDto requestDto) {
+        Menu menu = menuRepository.findById(id)
+            .orElseThrow(()-> new IllegalArgumentException("수정할 메뉴가 없다." + id));
+        
+        menu.update(requestDto.getMenu(), requestDto.getImgLink());
+        return id;
     }
 }

@@ -28,7 +28,42 @@ $(document).ready(function() {
         }).fail(function (error) {
             alert(JSON.stringify(error));
         })
-    });
+    });  // saveBtn
+
+    $("#updateBtn").click(function() {
+        let menu = $("#m_menu").val();
+        let imgLink = $("#m_imglink").val();
+        if (menu.trim() == "") {
+            alert("메뉴를 입력하세요");
+            return;
+        }
+        if (imgLink.trim() == "") {
+            alert("이미지 링크를 입력하세요");
+            return;
+        }
+        // 버튼 눌렀을때 restapi 로 데이터 전송(json)
+        var data = {
+            menu: menu, 
+            imgLink: imgLink
+        };
+
+        // 업데이트를 하기위한 키값
+        let id = $("#m_id").val();
+        // alert(id + " " + menu + " " + imgLink + " 수정이 됩니다.");
+ 
+        $.ajax({
+            type : 'PUT',
+            url : '/api/v1/menu/' + id,
+            dataType : 'json',
+            contentType : 'application/json; charset=utf-8',
+            data : JSON.stringify(data)
+        }).done(function () {
+            alert('메뉴가 수정되었습니다.');
+            location.reload();
+        }).fail(function (error) {
+            alert(JSON.stringify(error));
+        })
+    });  // updateBtn
 });
 
 function modal_show(id, menu, imgLink) {

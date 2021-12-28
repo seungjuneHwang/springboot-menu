@@ -30,4 +30,9 @@ public class Menu {
         this.imgLink = imgLink;
     }
 
+    public void update(String menu, String imgLink) {
+        this.menu = menu;
+        this.imgLink = imgLink;
+    }
+
 }
