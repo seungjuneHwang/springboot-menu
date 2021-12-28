@@ -31,14 +31,14 @@ $(document).ready(function() {
     });
 });
 
-// $.post("/api/v1/menusave",
-// {
-//     menu: $("#menu").val(), 
-//     img_link: $("#img_link").val()
-// },
-// function(data, status) {
-//     console.log(data);
-//     alert(data);
-//     // 새로 고침
-//     location.reload();
-// });
+function modal_show(id, menu, imgLink) {
+    console.log(id);
+    console.log(menu);
+    console.log(imgLink);
+    // 클릭한 위치의 테이블의 데이터를 모달에 값을 셋팅
+    $("#m_id").val(id);
+    $("#m_menu").val(menu);
+    $("#m_imglink").val(imgLink);
+
+    $("#myModal").modal();
+}

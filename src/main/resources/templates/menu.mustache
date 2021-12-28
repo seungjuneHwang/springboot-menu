@@ -12,9 +12,6 @@
 <br><br>
 <br>
 <h5>현재 메뉴 출력</h5>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-  Open modal
-</button>
 <!--   메뉴들이 쭉 출력 되면 되겠죠 -->
 <table class="table table-hover">
   <thead>
@@ -26,7 +23,7 @@
   </thead>
   <tbody>
     {{ #menulist }}
-    <tr onclick="alert('asdf')">
+    <tr style="cursor:pointer" onclick="modal_show('{{ id }}', '{{ menu }}', '{{ imgLink }}')">
       <td>{{ id }}</td>
       <td>{{ menu }}</td>
       <td>{{ imgLink }}</td>
@@ -50,15 +47,15 @@
         <div class="modal-body">
          <div class="form-group">
           <label for="menu" class="mb-2 mr-sm-2">메뉴 번호</label>
-          <input type="text" class="form-control mb-2 mr-sm-2" id="id" readonly>
+          <input type="text" class="form-control mb-2 mr-sm-2" id="m_id" readonly>
         </div>
           <div class="form-group">
           <label for="menu" class="mb-2 mr-sm-2">메뉴</label>
-          <input type="text" class="form-control mb-2 mr-sm-2" id="menu">
+          <input type="text" class="form-control mb-2 mr-sm-2" id="m_menu">
         </div>
         <div class="form-group">
           <label for="img_link" class="mb-2 mr-sm-2">이미지 링크</label>
-          <input type="text" class="form-control mb-2 mr-sm-2" id="img_link">
+          <input type="text" class="form-control mb-2 mr-sm-2" id="m_imglink">
         </div>
         
         </div>
