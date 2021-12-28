@@ -43,5 +43,10 @@ public class MenuApiController {
         menuService.delete(id);
         return id;
     }
+
+    @GetMapping("/api/v1/menurnd")
+    public MenuListResponseDto menuOne() {
+        return menuService.findRndOne();
+    }
     
 }

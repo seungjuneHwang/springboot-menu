@@ -1,6 +1,7 @@
 package com.aiproject.menu.service;
 
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 import com.aiproject.menu.domain.menu.Menu;
@@ -37,7 +38,6 @@ public class MenuService {
     public Long update(Long id, MenuSaveRequestDto requestDto) {
         Menu menu = menuRepository.findById(id)
             .orElseThrow(()-> new IllegalArgumentException("수정할 메뉴가 없다." + id));
-        
         menu.update(requestDto.getMenu(), requestDto.getImgLink());
         return id;
     }
@@ -47,8 +47,19 @@ public class MenuService {
     public void delete(Long id) {
         Menu menu = menuRepository.findById(id)
             .orElseThrow(()-> new IllegalArgumentException("삭제할 데이터 없다." + id));
-        
         menuRepository.delete(menu);
+    }
+
+    // 전체 데이터를 불러와서 무작위의 값 하나만 리턴
+    @Transactional(readOnly = true)
+    public MenuListResponseDto findRndOne() {
+        List<MenuListResponseDto> list = menuRepository.findAll().stream()
+        .map(MenuListResponseDto::new)
+        .collect(Collectors.toList());
+        
+        Random rnd = new Random();
+        MenuListResponseDto dto = list.get(rnd.nextInt(list.size()));
+        return dto;
     }
 
 }

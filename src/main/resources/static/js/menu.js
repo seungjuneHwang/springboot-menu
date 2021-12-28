@@ -69,8 +69,7 @@ $(document).ready(function() {
         // 버튼 눌렀을때 restapi 로 데이터 전송(json)
         // 업데이트를 하기위한 키값
         let id = $("#m_id").val();
-        // alert(id + " " + menu + " " + imgLink + " 수정이 됩니다.");
- 
+
         $.ajax({
             type : 'DELETE',
             url : '/api/v1/menu/' + id,
@@ -82,8 +81,20 @@ $(document).ready(function() {
         }).fail(function (error) {
             alert(JSON.stringify(error));
         })
-    });  // updateBtn
+    });  // delBtn
+
+    $("#rndBtn").click(function() {
+        var html = "";
+        $.getJSON("/api/v1/menurnd", function(result){
+            console.log(result.menu);
+            html = "오늘은 <b> " + result.menu +" </b> (이)닭!!!<br> 맛있게 먹기~<br>";
+            $("#div1").html(html);
+        });
+    });  // rndBtn
 });
+
+// 오늘은 <b> 메뉴 </b> (이)닭!!!<br> 맛있게 먹기~<br>
+// <img src="이미지링크" class="rounded" alt="메뉴" width="320" height="240"> 
 
 function modal_show(id, menu, imgLink) {
     console.log(id);

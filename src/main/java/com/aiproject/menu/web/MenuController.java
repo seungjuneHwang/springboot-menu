@@ -19,4 +19,9 @@ public class MenuController {
        model.addAttribute("menulist", menuService.findAll());
        return "menu";
    }
+
+   @GetMapping("/rndmenu")
+   public String rndMenu() {
+       return "rndmenu";
+   }
 }
