@@ -1,9 +1,19 @@
 $(document).ready(function() {
-    $("button").click(function() {
+    $("#saveBtn").click(function() {
+        let menu = $("#menu").val();
+        let imgLink = $("#img_link").val();
+        if (menu.trim() == "") {
+            alert("메뉴를 입력하세요");
+            return;
+        }
+        if (imgLink.trim() == "") {
+            alert("이미지 링크를 입력하세요");
+            return;
+        }
         // 버튼 눌렀을때 restapi 로 데이터 전송(json)
         var data = {
-            menu: $("#menu").val(), 
-            imgLink: $("#img_link").val()
+            menu: menu, 
+            imgLink: imgLink
         };
  
         $.ajax({

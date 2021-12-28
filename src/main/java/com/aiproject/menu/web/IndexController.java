@@ -21,10 +21,4 @@ public class IndexController {
    public String input() {
        return "input";
    }
-
-   @GetMapping("/menu")
-   public String menu(Model model) {
-       model.addAttribute("menuname", "고기");
-       return "menu";
-   }
 }
