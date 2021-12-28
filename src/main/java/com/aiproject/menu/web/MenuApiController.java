@@ -6,6 +6,7 @@ import com.aiproject.menu.dto.MenuListResponseDto;
 import com.aiproject.menu.dto.MenuSaveRequestDto;
 import com.aiproject.menu.service.MenuService;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,6 +36,12 @@ public class MenuApiController {
     @PutMapping("/api/v1/menu/{id}")
     public Long update(@PathVariable Long id, @RequestBody MenuSaveRequestDto requestDto) {
         return menuService.update(id, requestDto);
+    }
+
+    @DeleteMapping("/api/v1/menu/{id}")
+    public Long delete(@PathVariable Long id) {
+        menuService.delete(id);
+        return id;
     }
     
 }

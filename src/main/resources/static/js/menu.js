@@ -64,6 +64,25 @@ $(document).ready(function() {
             alert(JSON.stringify(error));
         })
     });  // updateBtn
+
+    $("#delBtn").click(function() {
+        // 버튼 눌렀을때 restapi 로 데이터 전송(json)
+        // 업데이트를 하기위한 키값
+        let id = $("#m_id").val();
+        // alert(id + " " + menu + " " + imgLink + " 수정이 됩니다.");
+ 
+        $.ajax({
+            type : 'DELETE',
+            url : '/api/v1/menu/' + id,
+            dataType : 'json',
+            contentType : 'application/json; charset=utf-8',
+        }).done(function () {
+            alert('메뉴가 삭제되었습니다.');
+            location.reload();
+        }).fail(function (error) {
+            alert(JSON.stringify(error));
+        })
+    });  // updateBtn
 });
 
 function modal_show(id, menu, imgLink) {

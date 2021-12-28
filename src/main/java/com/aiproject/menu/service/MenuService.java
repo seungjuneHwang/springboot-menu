@@ -41,4 +41,14 @@ public class MenuService {
         menu.update(requestDto.getMenu(), requestDto.getImgLink());
         return id;
     }
+
+    // 데이터 삭제
+    @Transactional
+    public void delete(Long id) {
+        Menu menu = menuRepository.findById(id)
+            .orElseThrow(()-> new IllegalArgumentException("삭제할 데이터 없다." + id));
+        
+        menuRepository.delete(menu);
+    }
+
 }
