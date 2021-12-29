@@ -84,10 +84,11 @@ $(document).ready(function() {
     });  // delBtn
 
     $("#rndBtn").click(function() {
-        var html = "";
         $.getJSON("/api/v1/menurnd", function(result){
             console.log(result.menu);
-            html = "오늘은 <b> " + result.menu +" </b> (이)닭!!!<br> 맛있게 먹기~<br>";
+            console.log(result.imgLink);
+            var html = "오늘은 <b> " + result.menu +" </b> (이)닭!!!<br> 맛있게 먹기~<br>";
+            html += '<img src="' + result.imgLink + '" class="rounded" alt="' + result.menu + '" width="320" height="240">';
             $("#div1").html(html);
         });
     });  // rndBtn

@@ -23,8 +23,6 @@ public class MenuApiController {
 
     @PostMapping("/api/v1/menusave")
     public Long save(@RequestBody MenuSaveRequestDto requestDto) {
-        // System.out.println(requestDto.getMenu());
-        // System.out.println(requestDto.getImgLink());
         return menuService.save(requestDto);
     }
 
