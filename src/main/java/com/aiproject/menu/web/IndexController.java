@@ -22,6 +22,11 @@ public class IndexController {
        return "input";
    }
 
+   @GetMapping("/melon")
+   public String melon() {
+       return "melon";
+   }
+
    @GetMapping("/test")
    @ResponseBody  public String testApi() {
        return "test";
