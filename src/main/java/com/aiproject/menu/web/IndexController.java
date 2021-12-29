@@ -29,6 +29,6 @@ public class IndexController {
 
    @GetMapping("/test")
    @ResponseBody  public String testApi() {
-       return "test";
+       return "test한글";
    }
 }
