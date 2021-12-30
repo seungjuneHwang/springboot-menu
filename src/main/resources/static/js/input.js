@@ -9,14 +9,22 @@ $(document).ready(function(){
           data: $("#data").val()
         },
         success : function(result){
-          console.log(JSON.stringify(result));
+//          console.log(JSON.stringify(result));
+          console.log(result.items);
             // alert("통신 성공");
             // $("#getresult").text("결과 : " + JSON.stringify(result));
             // var tblresult = result;
-            // var str = "";
-            // $.each(tblresult, function(i){
-            // });
-            // $("#userList").append(str);
+            var html = "";
+             $.each(result.items, function(i, field){
+                console.log(field.title);
+                html += "<tr>";
+                html += "<td>" + (i+1) + "</td>";
+                html += "<td><a href='" + field.link + "' target='_blank' >"
+                html += field.title + "</a></td>";
+                html += "<td>" + field.pubDate + "</td>";
+                html += "</tr>";
+             });
+             $("#newslist").append(html);
         },
         error : function(xhr, status, error){
             alert("통신 에러");

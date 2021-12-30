@@ -9,7 +9,17 @@
     <button type="button" id="inputbtn" class="btn btn-primary mb-2">확인</button>
     </div>
   <br><br>
-  <div id="div1">여기에 입력한 데이터가 나타납니다~ 두구두구</div>
+  <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>번호</th>
+          <th>제목</th>
+          <th>날짜</th>
+        </tr>
+      </thead>
+      <tbody id="newslist">
+      </tbody>
+    </table>
   
   <script src="/js/input.js"></script>
 {{>layout/footer}}
