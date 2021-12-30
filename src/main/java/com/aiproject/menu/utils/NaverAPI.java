@@ -31,12 +31,13 @@ public class NaverAPI {
 
         String apiURL = "https://openapi.naver.com/v1/search/news?query=" + text;    // json 결과
         //String apiURL = "https://openapi.naver.com/v1/search/blog.xml?query="+ text; // xml 결과
-
+        System.out.println(apiURL);
 
         Map<String, String> requestHeaders = new HashMap<>();
         requestHeaders.put("X-Naver-Client-Id", clientId);
         requestHeaders.put("X-Naver-Client-Secret", clientSecret);
         String responseBody = get(apiURL,requestHeaders);
+        // System.out.println(responseBody);
         return responseBody;
 	}
 	
