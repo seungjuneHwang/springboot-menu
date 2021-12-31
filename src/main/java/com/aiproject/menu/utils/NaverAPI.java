@@ -15,11 +15,11 @@ import java.util.Map;
 
 public class NaverAPI {
 	public static String searchNews(String str) {
-		String[] code = Util.readLineFile("c:/dev/네이버API_시크릿코드.txt").split("\\n");
+		// String[] code = Util.readLineFile("c:/dev/네이버API_시크릿코드.txt").split("\\n");
 //		String[] cArr = code.split("\\n");
 		
-        String clientId = code[0]; //애플리케이션 클라이언트 아이디값"
-        String clientSecret = code[1]; //애플리케이션 클라이언트 시크릿값"
+        String clientId = "NV4EdkvVJqhHxFRRL2JL"; //애플리케이션 클라이언트 아이디값"
+        String clientSecret = "f8es3ieBOX"; //애플리케이션 클라이언트 시크릿값"
 
         String text = null;
         try {
@@ -41,31 +41,31 @@ public class NaverAPI {
         return responseBody;
 	}
 	
-	public String searchBlog(String str) {
-		String[] code = Util.readLineFile("c:/dev/네이버API_시크릿코드.txt").split("\\n");
-//		String[] cArr = code.split("\\n");
+// 	public String searchBlog(String str) {
+// 		String[] code = Util.readLineFile("c:/dev/네이버API_시크릿코드.txt").split("\\n");
+// //		String[] cArr = code.split("\\n");
 		
-        String clientId = code[0]; //애플리케이션 클라이언트 아이디값"
-        String clientSecret = code[1]; //애플리케이션 클라이언트 시크릿값"
+//         String clientId = code[0]; //애플리케이션 클라이언트 아이디값"
+//         String clientSecret = code[1]; //애플리케이션 클라이언트 시크릿값"
 
-        String text = null;
-        try {
-            text = URLEncoder.encode(str, "UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            throw new RuntimeException("검색어 인코딩 실패",e);
-        }
-
-
-        String apiURL = "https://openapi.naver.com/v1/search/blog?query=" + text;    // json 결과
-        //String apiURL = "https://openapi.naver.com/v1/search/blog.xml?query="+ text; // xml 결과
+//         String text = null;
+//         try {
+//             text = URLEncoder.encode(str, "UTF-8");
+//         } catch (UnsupportedEncodingException e) {
+//             throw new RuntimeException("검색어 인코딩 실패",e);
+//         }
 
 
-        Map<String, String> requestHeaders = new HashMap<>();
-        requestHeaders.put("X-Naver-Client-Id", clientId);
-        requestHeaders.put("X-Naver-Client-Secret", clientSecret);
-        String responseBody = get(apiURL,requestHeaders);
-        return responseBody;
-	}
+//         String apiURL = "https://openapi.naver.com/v1/search/blog?query=" + text;    // json 결과
+//         //String apiURL = "https://openapi.naver.com/v1/search/blog.xml?query="+ text; // xml 결과
+
+
+//         Map<String, String> requestHeaders = new HashMap<>();
+//         requestHeaders.put("X-Naver-Client-Id", clientId);
+//         requestHeaders.put("X-Naver-Client-Secret", clientSecret);
+//         String responseBody = get(apiURL,requestHeaders);
+//         return responseBody;
+// 	}
 	
 	// json 데이터 파싱해서 전달
 // 	public ArrayList<NaverApiDTO> getListJson(String responseBody) {

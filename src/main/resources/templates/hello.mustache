@@ -3,6 +3,11 @@
   <h5>헬로 페이지</h5>
   hello spring boot!!<br>
 
-  <a href="#">링크</a>
-  
+  <a href="#" onclick="openPop('https://www.youtube.com/results?search_query=겨울잠')">링크</a>
+
+<script>
+function openPop(url){
+    var popup = window.open(url, '멜론에서 유툽으로', 'width=700px,height=800px,scrollbars=yes');
+}
+</script>
 {{>layout/footer}}
