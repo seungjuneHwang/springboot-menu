@@ -8,7 +8,7 @@ $(document).ready(function() {
             // console.log(field.artist);
             html += "<tr>";
             html += "<td>" + field.rank + "</td>";
-            html +="<td><a href='#' onclick=\"openPop('" + link + field.title + "')\">"
+            html += "<td><a href='#' onclick=\"openPop('" + link + field.title + "')\">"
             html += field.title + "</a><td>";
             html += "<td>" + field.artist + "</td>";
             html += "</tr>";
