@@ -38,6 +38,7 @@ public class UserController {
     // 회원 가입 요청 처리
     @PostMapping("/user/signup")
     public String registerUser(SignupRequestDto requestDto) {
+        System.out.println("관리자? " + requestDto.isAdmin());
         userService.registerUser(requestDto);
         return "redirect:/";
     }
