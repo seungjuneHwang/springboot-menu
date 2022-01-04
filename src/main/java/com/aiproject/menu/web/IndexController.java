@@ -31,4 +31,9 @@ public class IndexController {
    @ResponseBody  public String testApi() {
        return "test한글";
    }
+
+   @GetMapping("/playlist")
+   public String playlist() {
+       return "playlist";
+   }
 }

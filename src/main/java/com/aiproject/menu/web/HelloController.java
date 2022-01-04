@@ -3,6 +3,7 @@ package com.aiproject.menu.web;
 import java.util.List;
 
 import com.aiproject.menu.dto.MusicInfoDto;
+import com.aiproject.menu.dto.PlayListDto;
 import com.aiproject.menu.service.MelonSerivce;
 import com.aiproject.menu.service.NaverApiService;
 
@@ -39,6 +40,15 @@ public class HelloController {
     public String news(@RequestParam(value = "data", defaultValue = "없음") String data) {
         System.out.println(data);
         return naverApiSerivce.searchNews(data);
+    }
+
+    @GetMapping("/api/v1/playlist")
+    public PlayListDto playlist() {
+        PlayListDto dto = new PlayListDto();
+        dto.setTitle("겨울잠");
+        dto.setArtist("아이유");
+        dto.setSongLink("https://www.youtube.com/watch?v=FXfvbMEWkhk");
+        return dto;
     }
 
 }
