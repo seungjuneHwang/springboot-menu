@@ -1,10 +1,13 @@
 {{>layout/header}}
 
   <h5>메인페이지</h5>
-  {{#username}}
-    {{ username }} 님 반갑습니다.<br>
+  {{#userName}}
+    {{ userName }} 님 반갑습니다.<br>
     <a href="/user/logout" class="btn btn-primary">로그아웃</a>
-  {{/username}}
+  {{/userName}}
+  {{^userName}}
+  <a href="/user/login" class="btn btn-primary">로그인</a>
+  {{/userName}}
   <img src="/img/dora.png" class="rounded" alt="도라에몽" > 
 
 {{>layout/footer}}

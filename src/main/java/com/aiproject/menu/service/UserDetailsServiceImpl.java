@@ -15,13 +15,14 @@ import lombok.RequiredArgsConstructor;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    private final UserRepository userRepository;
+    // private final UserRepository userRepository;
 
     // username으로 사용자 정보 가져오기
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByUsername(username)
-                .orElseThrow(() -> new UsernameNotFoundException("Can't find " + username));
+        // User user = userRepository.findByUsername(username)
+        //         .orElseThrow(() -> new UsernameNotFoundException("Can't find " + username));
 
-        return new UserDetailsImpl(user);
+        // return new UserDetailsImpl(user);
+        return new UserDetailsImpl(new User());
     }
 }
