@@ -1,7 +1,7 @@
 package com.aiproject.menu.web;
 
 import com.aiproject.menu.dto.SignupRequestDto;
-import com.aiproject.menu.service.UserService;
+import com.aiproject.menu.service.MemberService;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +14,7 @@ import lombok.RequiredArgsConstructor;
 @Controller
 public class UserController {
 
-    private final UserService userService;
+    private final MemberService memberService;
 
     // 회원 로그인 페이지
     @GetMapping("/user/login")
@@ -25,7 +25,7 @@ public class UserController {
 	// 로그인 에러 시 처리
     @GetMapping("/user/login/error")
     public String loginError(Model model) {
-        model.addAttribute("loginError", true);
+        model.addAttribute("error", true);
         return "login";
     }
 
@@ -39,7 +39,7 @@ public class UserController {
     @PostMapping("/user/signup")
     public String registerUser(SignupRequestDto requestDto) {
         System.out.println("관리자? " + requestDto.isAdmin());
-        userService.registerUser(requestDto);
-        return "redirect:/";
+        memberService.registerUser(requestDto);
+        return "redirect:/user/login";
     }
 }

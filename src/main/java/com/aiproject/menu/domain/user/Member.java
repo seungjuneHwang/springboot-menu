@@ -1,18 +1,16 @@
 package com.aiproject.menu.domain.user;
 
-import javax.persistence.*;
-
 import com.aiproject.menu.domain.Timestamped;
-
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+
+import javax.persistence.*;
 
 @Getter // get 함수를 일괄적으로 만들어줍니다.
 @NoArgsConstructor // 기본 생성자를 만들어줍니다.
 @Entity // DB 테이블 역할을 합니다.
-public class User extends Timestamped {
+public class Member extends Timestamped {
 
     // ID가 자동으로 생성 및 증가합니다.
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,30 +22,24 @@ public class User extends Timestamped {
     private String name;
 
     @Column(nullable = false)
-    private String email;
+    private String password;
 
-    @Column
-    private String picture;
+    @Column(nullable = false)
+    private String email;
 
     // 사용자의 역할(회원, 관리자)
     @Column(nullable = false)
     @Enumerated(value = EnumType.STRING)
     private Role role;
 
-    @Builder
-    public User(String name, String password, String email, String picture, Role role) {
+//    @Builder
+    public Member(String name, String password, String email, Role role) {
         this.name = name;
+        this.password = password;
         this.email = email;
-        this.picture = picture;
         this.role = role;
     }
 
-    public User update(String name, String picture) {
-        this.name = name;
-        this.picture = picture;
-
-        return this;
-    }
 
     public String getRoleKey() {
         return this.role.getKey();

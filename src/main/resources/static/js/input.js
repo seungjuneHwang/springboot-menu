@@ -15,7 +15,7 @@ $(document).ready(function(){
             // $("#getresult").text("결과 : " + JSON.stringify(result));
             // var tblresult = result;
             var html = "";
-             $.each(result.items, function(i, field){
+            $.each(result.items, function(i, field){
                 console.log(field.title);
                 html += "<tr>";
                 html += "<td>" + (i+1) + "</td>";
@@ -23,8 +23,9 @@ $(document).ready(function(){
                 html += field.title + "</a></td>";
                 html += "<td>" + field.pubDate + "</td>";
                 html += "</tr>";
-             });
-             $("#newslist").append(html);
+            });
+            $("#newslist").empty();  // 비우고 다시 출력 하기 위해
+            $("#newslist").append(html);
         },
         error : function(xhr, status, error){
             alert("통신 에러");
