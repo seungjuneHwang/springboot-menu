@@ -13,7 +13,9 @@ public class IndexController {
 
     @GetMapping("/")
     public String index(Model model, @AuthenticationPrincipal UserDetailsImpl userDetails) {
-        model.addAttribute("username", userDetails.getUsername());
+        if (userDetails != null) {
+            model.addAttribute("username", userDetails.getUsername());
+        }
         return "index";
     }
 

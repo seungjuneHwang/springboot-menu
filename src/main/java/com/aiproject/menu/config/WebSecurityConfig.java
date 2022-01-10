@@ -9,7 +9,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Configuration
-@EnableWebMvc
 @EnableGlobalMethodSecurity(securedEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
@@ -23,11 +22,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.headers().frameOptions().disable();
         http.authorizeRequests()
         // .anyRequest().permitAll();
-                // image 폴더를 login 없이 허용
-                .antMatchers("/", "/img/**", "/css/**", "/js/**").permitAll()
-                // css 폴더를 login 없이 허용
-                // .antMatchers("/css/**").permitAll()
-                // js 폴더를 login 없이 허용
+                // images, css, js 폴더를 login 없이 허용
+                .antMatchers("/", "/images/**", "/css/**", "/js/**").permitAll()
                 // 회원 관리 URL 전부를 login 없이 허용
                 .antMatchers("/user/**").permitAll()
                 // h2-console URL을 login 없이 허용
